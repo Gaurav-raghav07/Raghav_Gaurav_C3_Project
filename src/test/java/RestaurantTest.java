@@ -4,6 +4,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -61,4 +64,22 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    // Checking Total Cost
+    @Test 
+    public void selected_items_cost_should_match_total_cost(){
+        int totalAmount = 388;
+        List<String> selectedItems = new ArrayList<String>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+        assertEquals(totalAmount, restaurant.viewTotalCost(selectedItems));
+    }
+
+    @Test
+    public void selected_items_cost_is_not_matching_total_cost(){
+        int totalAmount = 388;
+        List<String> selectedItems = new ArrayList<String>();
+        selectedItems.add("Sweet corn soup");
+        assertNotEquals(totalAmount, restaurant.viewTotalCost(selectedItems));
+    }
 }
