@@ -76,7 +76,7 @@ class RestaurantTest {
     }
 
     @Test
-    public void selected_items_cost_is_not_matching_total_cost(){
+    public void selected_items_list_is_not_matching_total_cost(){
         int totalAmount = 388;
         List<String> selectedItems = new ArrayList<String>();
         selectedItems.add("Sweet corn soup");
